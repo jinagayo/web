@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 잡기 게임</title>
+<script type="text/javascript">
+   function nextRandomInteger(limit) {
+	   return Math.round(Math.random() * limit);
+   }
+   function randomSpeed(maxSpeed) {
+	   return Math.random()*maxSpeed - Math.random()*maxSpeed; 
+   }
+   let canvasWidth = window.screen.availWidth;  
+   let canvasHeight = window.screen.availHeight;
+   let total = 10;
+   function MovingImg() { 
+		this.x = nextRandomInteger(canvasWidth);
+		this.y = nextRandomInteger(canvasHeight);		
+		this.vX = randomSpeed(7);
+		this.vY = randomSpeed(7);
+		//<img />
+		this.body = document.createElement("img");
+		this.body.src = "./gd/before.png"; //이미지 위치에 맞도록 설정
+		this.body.style.width = "130px";
+		this.body.style.height = "130px";
+		this.body.style.position = "absolute";
+		let myimg = this.body;
+		this.body.onclick = () => { //이미지 클릭시 이벤트 등록
+			--total;
+			alert("남은 금동이 :" + total);
+			myimg.src = "./gd/after2.png";
+            this.body.style.width = "130px";
+		    this.body.style.height = "130px";
+			let str = ["쳇","뭐야?","간식줘!","산책가자","뭘봐?","안녕","하이","밥줘","누나!","배고파","고구마?"]
+			let h1 = document.createElement("h6")
+			h1.innerHTML = str[Math.floor(Math.random()*str.length)];
+			
+			// h1 스타일 설정 (이미지 근처에 표시)
+			h1.style.position = "absolute";
+    		h1.style.left = this.x + "px";
+   			h1.style.top = (this.y-50) + "px"; // 이미지 위쪽에 표시
+    		h1.style.color = "black";
+    		h1.style.fontSize = "20px";
+    		h1.style.fontWeight = "bold";
+
+    		document.body.appendChild(h1); // 문장을 화면에 추가
+		}
+		document.body.appendChild(this.body);
+	}
+   MovingImg.prototype.move = function() {
+	  
+		let pos = this.body.src.indexOf("after2.png");
+		if(pos > 0) { 
+			return; //move() 종료
+		}
+		
+		if(this.x < 0 || this.x > canvasWidth) { //설정한 영역 외부
+			this.vX *= -1; //방향변경
+		}
+		if(this.y < 0 || this.y > canvasHeight) {
+			this.vY *= -1;
+		}
+		this.x += this.vX;  //위치 변경
+		this.y += this.vY;
+		this.body.style.left = this.x + "px";  //스타일을 변경. 보여지도록 설정
+		this.body.style.top = this.y + "px";
+	}
+	//window : 브라우저를 관리. 브라우저창의 최상위 객체. 
+	//onload : 브라우저가 실행 준비가 완료된 경우 발생되는 이벤트
+	window.onload = function() {
+		let movingImgs = []; //배열
+		for(let i=0;i<10;i++) {
+		  movingImgs.push(new MovingImg()); //MovingImg 객체를 배열에 추가
+		}
+		let game = setInterval(function() {
+			for(let i in movingImgs) {
+				if(total < 1) {
+					alert("굉장해!!")
+					document.body.innerHTML = ""; 
+					clearInterval(game);
+					let img2 = document.createElement("img");
+					img2.setAttribute("src","./gd/완료.png");
+					img2.style.width = "700px";
+					img2.style.height = "700px";
+					img2.style.position = "absolute";
+					img2.style.top = "50%";
+					img2.style.left = "50%";
+					img2.style.transform = "translate(-50%, -50%)";
+					document.body.appendChild(img2);
+					let h1 = document.createElement("h1");
+					h1.innerHTML = "미션 성공!"
+					h1.style.position = "absolute";
+    				h1.style.left = "50%";
+   					h1.style.top = "50%"; // 이미지 위쪽에 표시
+    				h1.style.color = "black";
+    				h1.style.fontWeight = "bold";
+    				document.body.appendChild(h1); // 문장을 화면에 추가
+					return; //함수 종료 
+				}
+				//movingImgs[i] : MovingImg 객체
+				movingImgs[i].move();
+			}
+		},1000/60);
+	}
+</script>
+<style>
+	body {
+			background-image: url('./gd/바닥.jpg');
+			background-size: cover;
+			height: 100vh;
+			background-repeat: no-repeat;
+			background-position: center center;
+	}
+</style>
+</head>
+<body></body></html>

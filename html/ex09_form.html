@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>폼관련 태그</title>
+    </head>
+    <body>
+        <form>
+            <!-- 1. <input type="text"> 태그 -->
+             <p>
+                <!-- 디폴트로 type="text" 적용 -->
+                <input>
+                <br>
+                <input type="text" size="5"> <!-- 입력 상자의 크기 5로 지정 -->
+                <br>
+                <input type="text" maxlength="4"> <!-- 입력 값의 크기 4로 지정 // 4글자만 입력가능능-->
+                <br>
+                <input type="text" placeholder="검색어를 입력하세요"> <!-- 입력 메세지 -->
+                <br>
+                <input type="text" required> <!-- 필수 입력사항 -->
+                <br>
+                <input type="text" value="날씨"> <!-- 입력값을 미리 설정 -->
+                <br>
+                <input type="text" value="변경불가" readonly> <!-- 수정 불가 -->
+                <br>
+                <input type="text" value="변경불가" disabled> <!-- 사용 불가-->
+                </p>
+                <!-- input 태그의 type 종류 -->
+                 <p>
+                    <!-- type="password" : 비밀번호 입력용 -->
+                     <input type="password" placeholder="비밀번호"><br>
+                    <!-- type="number" : 숫자 입력용-->
+                     <input type="number" min="1" max="12"><br>
+                    <!-- type="email" : 이메일 입력용-->
+                      <input type="email" placeholder="이메일"><br>
+                    <!-- type="date" : 날짜 입력용-->
+                     <input type="date" placeholder="날짜"><br>
+                    <!-- type="color" : 색상 선택 -->
+                      <input type="color" name="color" value="색상 값"><br>
+                    <!-- type="hidden" : 화면에 보이지 않는 값을 처리시-->
+                     <input type="hidden" value="절대 화면에 보이지 않음"><br>
+                    <!-- type="file" : 업로드 파일 선택 -->
+                     <input type="file"> <br>
+                    <!-- type="button" : 버튼 입력-->
+                     <input type="button" value="버튼"><br>
+                    <!-- type="submit" : 전송 폼 내부의 입력값을 다른 데이터로 전송 -->
+                     <input type = "submit" value="submit"><br>
+                    <!-- type="reset" : 폼에 입력된 값을 초기화 -->
+                     <input type="reset" value="reset"><br>
+                 </p>
+                <p>
+                    <!-- radio 단일선택, checkbox 다중선택 -->
+                    <!-- radio : value 속성 필요
+                                => 어떤 radio를 선택했는지 알기 위해서 반드시 추가
+                                같은 이름을 가진 radio 선택이어야 단일 선택이 가능함함
+                    -->
+                    <input type="radio" name="gender" value="male">남
+                    <input type="radio" name="gender" value="female">여
+                    <input type="radio" name="pass" value="1">합격
+                    <input type="radio" name="pass" value="0">불합격
+                </p>
+                <!-- checkbox : 다중 선택 -->
+                 <p>
+                    <input type="checkbox">모두 동의합니다<br>
+                    <input type="checkbox" name="hobbies" value="1">운동
+                    <input type="checkbox" name="hobbies" value="2">여행 <br>
+                 </p>
+
+                <!-- 폼태그의 하위 기타 태그 -->
+                 <!-- 1. select 태그 : 목록 선택 -->
+                  <p>
+                    <!-- 하나의 option을 선택할 수 있다. -->
+                    <select>
+                        <option value="naver">naver.com</option>
+                        <option value="kakao">kakao.com</option>
+                        <option value="gmail">gmail.com</option>
+                    </select>
+                    <!-- 여러개 option을 선택할 수 있다.-->
+                     <!-- <select> 태그는 드롭다운 리스트 형태로 하나의 옵션만 선택할 수 있지만,
+                        multiple 속성을 추가하면 리스트 박스 형태로 여러 개의 옵션을 선택할 수 있게 됩니다.-->
+                    <select multiple size="2">
+                        <option value="seoul">서울</option>
+                        <option value="pusan">부산</option>
+                        <option value="inchon">인천</option>
+                    </select>
+                    <!-- 사용자는 Ctrl(윈도우) 또는 Command(맥) 키를
+                        누른 상태에서 여러 개의 옵션을 선택할 수 있음-->
+                  </p>
+
+                <!-- textarea : 여러 행 입력 태그-->
+                 <p>
+                    <!-- 디폴트 : 2행 20열 -->
+                     <textarea></textarea><br>
+                    <!-- rows 속성 : 행,  cols 속성 : 열 -->
+                      <textarea rows="3" cols="30"></textarea><br>
+                    <!-- value 속성 대신 태그 내부 텍스트가 입력된 값을 저장한다.-->
+                     <textarea>안녕하세요</textarea>
+                 </p>
+                
+                <!-- label 태그 : 라벨 붙이기 -->
+                <p>
+                    <!-- for 속성 : 입력요소의 id 속성값 -->
+                    <!-- 사용자가 클릭할 수 있는 텍스트(레이블)를 제공하여
+                        폼 요소를 보다 쉽게 선택할 수 있도록 합니다.-->
+                    <!-- 라벨을 클릭하면 연결된 입력 요소가 활성화됨 -->
+                    <label for="male">
+                        <input type="radio" name="gender" value="male" id="male">남
+                    </label>
+                    <label for="female">
+                        <input type="radio" name="gender" value="female" id="female">여
+                    </label>
+                    <!-- 남, 여 텍스트를 클릭해도 선택이 가능-->
+                </p>
+                <!-- fieldset : 입력 요소들을 그룹화 -->
+                 <p>
+                    <fieldset>
+                        <legend>성별</legend>
+                        <label for="male">
+                            <input type="radio" name="gender" value="male" id="male">남
+                        </label>
+                        <label for="female">
+                            <input type="radio" name="gender" value="female" id="female">여
+                        </label>
+                    </fieldset>
+                 </p>
+        </form>
+        
+    </body>
+</html>
