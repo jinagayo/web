@@ -2,9 +2,9 @@
 <h5 class="code-line" data-line-start=1 data-line-end=2 ><a id="___JavaScript_____1"></a><em>추억의 리듬게임을 JavaScript 로 직접 구현해보기!</em></h5>
 <p class="has-line-data" data-line-start="4" data-line-end="5"><img src="https://img.shields.io/badge/HTML-0F1689?style=flat-square&amp;logo=HTML&amp;logoColor=white" alt="N|Solid">     <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=flat-square&amp;logo=Javascript&amp;logoColor=white" alt="N|Solid">      <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&amp;logo=GitHub&amp;logoColor=white" alt="N|Solid"></p>
 <h3 class="code-line" data-line-start=7 data-line-end=8 ><a id="___7"></a>🚀 프로젝트 소개</h3>
-<p class="has-line-data" data-line-start="8" data-line-end="11">JacaScript를 활용하여 어린시절 자주하던 플래시게임인 리듬게임을 구현했습니다.<br>
-제한 시간 안에 화면의 키보드키를 키보드를 눌러 모두 제거하면 이기는 게임입니다.<br>
-수업시간에 배운 자바스크립트 라이브러리 jQuery를 추가하여 이벤트 처리, 애니메이션 효과를 보다 간편하게 처리하고자 하였습니다.</p>
+<p class="has-line-data" data-line-start="8" data-line-end="11">JacaScript를 활용하여 간단한 미니 리듬게임을 구현했습니다.<br>
+제한 시간 안에 화면의 키보드키를 모두 눌러 제거하면 이기는 게임입니다.<br>
+jQuery를 추가하여 이벤트 처리, 애니메이션 효과를 보다 간편하게 처리하고자 하였습니다.</p>
 <h3 class="code-line" data-line-start=13 data-line-end=14 ><a id="___13"></a>✅ 주요 특징</h3>
 <ul>
 <li class="has-line-data" data-line-start="14" data-line-end="15">처음 시작시 “리듬게임” 문구가 서서히 등장하도록 애니메이션 효과</li>
